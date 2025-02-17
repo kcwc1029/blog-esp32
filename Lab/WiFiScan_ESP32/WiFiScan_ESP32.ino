@@ -1,10 +1,8 @@
-#include "WiFi.h"  // 引入 Wi-Fi 函式庫
-
+#include "WiFi.h"  
 bool scanning = true;  // 掃描狀態變數，控制 Wi-Fi 掃描是否繼續執行
 
-// 初始化系統
 void setup() {
-    Serial.begin(9600);  // 設定 Serial 監視器波特率為 9600
+    Serial.begin(9600); 
     Serial.println("\n[系統啟動] ESP32 Wi-Fi 掃描器");
 
     initWiFi();  // 初始化 Wi-Fi 設定

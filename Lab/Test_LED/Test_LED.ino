@@ -8,9 +8,9 @@ void setup() {
 
 void loop() {
     digitalWrite(LED_PIN, HIGH); // 開啟 LED
-    Serial.println("LED ON"); 
+    Serial.println("LED ON");
     delay(1000); // 等待 1 秒
-    
+
     digitalWrite(LED_PIN, LOW);  // 關閉 LED
     Serial.println("LED OFF");
     delay(1000); // 等待 1 秒
