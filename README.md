@@ -17,7 +17,8 @@
 -   D1 mini
 -   LOLIN D32
 -   ESP32-S3
-    ![upgit_20250216_1739709906.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250216_1739709906.png)
+
+![upgit_20250216_1739709906.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250216_1739709906.png)
 
 ![upgit_20250216_1739709918.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250216_1739709918.png)
 
@@ -28,12 +29,30 @@
 
 ### 3.2. USB 線插入
 
-![[1739710150904.gif]]
+![gif](./GIF/1739710150904.gif)
 
-## 4. [Lab：控制 LED](./Lab/Test_LED/Test_LED.ino)
+## 4. 基礎測試
 
-## 5. [Lab：取得開發版晶片編號](./Lab/GetChipID_ESP32/GetChipID_ESP32.ino)
+### 4.1. [Lab：序列埠 (Serial Monitor) 訊息輸出 01](./Lab/Test_Serial_Monitor01/Test_Serial_Monitor.ino)
 
--   ESP 32 開發板有一個特殊的晶片編號(chip ID)，可以用來辨識開發板唯一資訊
+### 4.2. [Lab：序列埠 (Serial Monitor) 訊息輸出，輸入 EXIT 離開](./Lab/Test_Serial_Monitor02/Test_Serial_Monitor02.ino)
 
-## 6. [Lab：測試 wifi](./Lab/WiFiScan_ESP32/WiFiScan_ESP32.ino)
+### 4.3. [Lab：取得開發版晶片編號](./Lab/GetChipID_ESP32/GetChipID_ESP32.ino)
+
+## 5. GPIO
+
+### 5.1. LED（Light-Emitting Diode，發光二極體）
+
+-   是一種能夠發光的半導體電子元件
+-   1962 年首次出現，早期僅能發出紅光，後來發展出其他顏色的版本。
+-   特性：
+    -   單向導通（順向偏壓）：只有一個方向可導通（通電）。
+    -   電致發光效應：當電流通過時，電子與電洞重合而發出單色光。
+    -   採用不同的半導體材料調整波長，影響 LED 發出的光顏色。
+    -   高效率、壽命長、不易破損、反應速度快、可靠性高。
+
+### 5.2. [Lab：控制 LED 發光](./Lab/Test_LED/Test_LED.ino)
+
+### 5.3. [Lab：列出當下所有熱點](./Lab/WiFiScan_ESP32/WiFiScan_ESP32.ino)
+
+### 5.4. [Lab：列出當下所有熱點，輸入帳密連線](./Lab/WiFiScan_ESP32/WiFiScan_ESP32.ino)
