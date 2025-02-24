@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <head>
+     <meta charset="utf-8" />
+     <title>世說新語</title>
+  </head>
+  <body>
+  現實中，人們用真名講假話；<br>
+  虛擬中，人們用假名講真話。
+  </body>
+</html>
