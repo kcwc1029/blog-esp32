@@ -3,21 +3,18 @@
 
 HTTPClient http;  // 建立 HTTP 客戶端物件
 
-const char *ssid = "CHENG";      // 無線網路基地台的 SSID
-const char *password = "87878787";  // 無線網路基地台的密碼
+// const char *ssid = "";      // 無線網路基地台的 SSID
+// const char *password = "";  // 無線網路基地台的密碼
 
 void setup() {
-    Serial.begin(115200);  // 初始化序列埠通訊
-    Serial.println();  // 分行符號，讓開機訊息更清楚
-
+    Serial.begin(115200);  
+    Serial.println(); 
     WiFi.begin(ssid, password);  // 連接 Wi-Fi
-
     // 等待 Wi-Fi 連線
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);
-        Serial.print(".");  // 印出 . 表示正在連線
+        Serial.print(".");  
     }
-
     Serial.println("\n已連上 Wi-Fi");
 }
 
@@ -33,6 +30,5 @@ void loop() {
     }
 
     http.end();  // 結束 HTTP 連線
-
     delay(5000);  // 間隔 5 秒再傳送一次，避免頻率過高
 }

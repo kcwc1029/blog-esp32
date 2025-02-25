@@ -3,13 +3,12 @@ char val;
 
 void setup(){
   pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.print("Welcome to Arduino!");
 }
 
 void loop(){
-  if (Serial.available())
-  {
+  if (Serial.available()){
     val = Serial.read();
     if (val == '1'){
       digitalWrite(LED_BUILTIN, HIGH);

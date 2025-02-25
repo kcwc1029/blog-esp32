@@ -9,7 +9,7 @@ BluetoothSerial myBT;
 
 // 定義變數
 char incomeData;  // 用於接收資料的變數
-const byte LED = 4;  // 定義 LED 連接的 GPIO 腳位
+const byte LED = 5;  // 定義 LED 連接的 GPIO 腳位
 
 void setup() {
     Serial.begin(9600);   // 設定序列埠通訊速率為 9600

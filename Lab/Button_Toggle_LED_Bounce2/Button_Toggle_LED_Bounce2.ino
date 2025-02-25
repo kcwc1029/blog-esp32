@@ -16,7 +16,6 @@ void setup() {
 
 void loop() {
   debouncer.update();  // 更新按鈕狀態
-
   if (debouncer.fell()) {  // 檢測到按鈕「剛剛被按下」
     ledState = !ledState;  // 切換 LED 狀態
     digitalWrite(LED_PIN, ledState);

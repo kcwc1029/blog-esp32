@@ -1,25 +1,25 @@
 #include "WiFi.h"
+
 bool scanning = true;  // 掃描狀態變數，控制 Wi-Fi 掃描是否繼續執行
 
 void setup() {
     Serial.begin(115200);
     Serial.println("\n[系統啟動] ESP32 Wi-Fi 掃描器");
     initWiFi();  // 初始化 Wi-Fi 設定
-    delay(100);  // 確保 Wi-Fi 初始化完成
+    delay(100);
     Serial.println("[初始化完成] 準備開始 Wi-Fi 掃描\n");
     Serial.println("📌 請在序列監視器輸入 'q' 並按 Enter 來停止掃描");
 }
 
-// 主迴圈：重複掃描 Wi-Fi，直到使用者按 'q' 停止
+
 void loop() {
-    if (!scanning) {  // 如果使用者輸入 'q'，則停止掃描
+    if (!scanning) { 
         Serial.println("[系統已停止 Wi-Fi 掃描]");
         while (true);  // 進入無限迴圈，停止程式運行
     }
 
     Serial.println("[掃描開始] 正在搜尋 Wi-Fi 網路...");
-
-    int networkCount = WiFi.scanNetworks();  // 開始掃描 Wi-Fi，回傳找到的熱點數量
+    int networkCount = WiFi.scanNetworks();  
 
     Serial.println("[掃描完成]");
     if (networkCount == 0) {
@@ -40,23 +40,28 @@ void loop() {
     }
 
     Serial.println("[等待 5 秒，然後重新掃描...]\n");
-
-    // 等待期間檢查使用者是否輸入 'q'
-    for (int i = 0; i < 50; i++) {  // 50 x 100ms = 5000ms (5 秒)
-        if (Serial.available()) {  // 檢查是否有輸入
-            char userInput = Serial.read();  // 讀取使用者輸入
-            if (userInput == 'q' || userInput == 'Q') {  // 若輸入 'q' 則停止掃描
-                scanning = false;
-                break;  // 跳出等待
-            }
-        }
-        delay(100);  // 每 100ms 檢查一次
-    }
+    checkUserInput(5000);
 }
 
 // Wi-Fi 初始化函式
 void initWiFi() {
     WiFi.mode(WIFI_STA);  // 設定為「工作站模式」，避免啟動 AP
-    WiFi.disconnect();     // 斷開當前 Wi-Fi 連線，確保乾淨的掃描
+    WiFi.disconnect();    // 斷開當前 Wi-Fi 連線，確保乾淨的掃描
     Serial.println("[Wi-Fi 初始化完成]");
+}
+
+// 檢查使用者輸入函式
+void checkUserInput(int waitTimeMs) {
+    int iterations = waitTimeMs / 100;  
+    for (int i = 0; i < iterations; i++) {
+        if (Serial.available()) {  
+            char userInput = Serial.read(); 
+            if (userInput == 'q' || userInput == 'Q') { 
+                scanning = false;
+                Serial.println("[收到指令] 停止 Wi-Fi 掃描");
+                break;  // 跳出等待迴圈
+            }
+        }
+        delay(100);  
+    }
 }

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "remoteXY/remoteXY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "remoteXY"
             }
           }
         ]
@@ -138,13 +138,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "remoteXY/remoteXY.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "README 的大綱"
+              "title": "remoteXY 的大綱"
             }
           }
         ],
@@ -166,6 +166,7 @@
   },
   "active": "3fa6783af230dcf5",
   "lastOpenFiles": [
+    "README.md",
     "Lab/ESP32_NTP_Time/ESP32_NTP_Time.ino",
     "Lab/ESP32_NTP_Time",
     "Lab/ESP32_HTTP_LED_AP/ESP32_HTTP_LED_AP.ino",
@@ -176,9 +177,7 @@
     "Lab/ESP32_WebServer",
     "Lab/ESP32_Wifi_Post/ESP32_Wifi_Post.ino",
     "Lab/ESP32_Wifi_Post",
-    "Lab/ESP32_Wifi_Get/ESP32_Wifi_Get.ino",
     "Lab/Digital_Intput_LED_Button/Digital_Intput_LED_Button.ino.md",
-    "README.md",
     "網路部分.md",
     "通訊部分.md",
     "基本部分.md",

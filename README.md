@@ -84,7 +84,7 @@
 
 ![upgit_20250219_1739933987.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250219_1739933987.png)
 
-### CPU、MPU、MCU、SoC
+### 4.1. CPU、MPU、MCU、SoC
 
 -   cpu 就是大家知道的中央處理器(central processing unit)
     -   在嵌入式中會稱呼她為 微處理器單元(microprocessor unit, MPU)
@@ -97,7 +97,7 @@
 
 ![upgit_20250223_1740298054.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250223_1740298054.png)
 
-### 以 arduino 為例：
+### 4.2. 以 arduino 為例：
 
 ![upgit_20250223_1740298582.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250223_1740298582.png)
 
@@ -261,7 +261,7 @@ void setup(){
 }
 ```
 
-## 開關-按鍵彈跳現象（Debounce）
+## 9. 開關-按鍵彈跳現象（Debounce）
 
 -   當我們按下 機械開關（Tact Switch）時，按鈕應該是「導通」或「斷開」，但實際上會有短暫的抖動，這就是「彈跳現象（Bounce）」。
 -   ![upgit_20250223_1740303419.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250223_1740303419.png)
@@ -270,12 +270,16 @@ void setup(){
 
 ![upgit_20250223_1740301687.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250223_1740301687.png)
 
-### [Lab：按一下開燈，按一下關燈(使用 delay 處理彈跳訊號)](./Lab/Button_Toggle_LED/Button_Toggle_LED.ino)
+### 9.1. [Lab：按一下開燈，按一下關燈(使用 delay 處理彈跳訊號)](./Lab/Button_Toggle_LED/Button_Toggle_LED.ino)
 
-### [Lab：按一下開燈，按一下關燈(使用 bounce2 處理彈跳訊號)](./Lab/Button_Toggle_LED_Bounce2/Button_Toggle_LED_Bounce2.ino)
+### 9.2. [Lab：按一下開燈，按一下關燈(使用 bounce2 處理彈跳訊號)](./Lab/Button_Toggle_LED_Bounce2/Button_Toggle_LED_Bounce2.ino)
 
-## 9. 脈衝寬度調變(Pulse Width Modulation, PWM)
+## 10. 脈衝寬度調變(Pulse Width Modulation, PWM)
 
+![upgit_20250224_1740386214.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250224_1740386214.png)
+
+-   參考：https://shop.mirotek.com.tw/iot/esp32-start-8/
+-   以高頻率訊號，去調整電壓改變。
 -   DAC 缺失
     -   ESP32 內建的 DAC 解析度只有 8-bit（0~255），但是 PWM 可以提供更高的解析度，通常是 12-bit 或更高（0~4095）。
     -   只能使用 GPIO25 & GPIO26
@@ -288,12 +292,12 @@ void setup(){
 
 ![upgit_20250219_1739948653.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250219_1739948653.png)
 
-## 10. [觸碰輸入](./Lab/GPIO_Touch/GPIO_Touch.ino)
+## 11. [觸碰輸入](./Lab/GPIO_Touch/GPIO_Touch.ino)
 
 -   ESP32 的特殊腳位【touch】，以感應電容變化量作為輸入。
 -   手指觸碰就可以感應到。
 
-## 11. UART
+## 12. UART
 
 ![upgit_20250219_1739950018.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250219_1739950018.png)
 
@@ -308,7 +312,7 @@ void setup(){
 
 ![upgit_20250219_1739951448.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250219_1739951448.png)
 
-### macOS 與 Linux 的通訊埠
+### 12.1. macOS 與 Linux 的通訊埠
 
 -   Windows 使用 COM 來代表序列通訊埠
 -   macOS 與 Linux 則使用下面兩者來表示通訊埠。
@@ -329,20 +333,20 @@ ls -l /dev/cu.* // 列出所有 CU 設備
 
 ![upgit_20250223_1740304967.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250223_1740304967.png)
 
-## 12. 藍芽
+## 13. 藍芽
 
--   分為：藍牙版本(Specification)及藍牙規範(Profile)。
+-   分為：藍牙規格(Specification)及藍牙規範(Profile)。
 
-### 12.1. 藍牙版本(Specification)：定義無線電規格與架構(傳輸速度、傳輸技術、傳輸距離等)
+### 13.1. 藍牙規格(Specification)：定義無線電規格與架構(傳輸速度、傳輸技術、傳輸距離等)
 
--   藍芽各本差異
+-   藍芽各規格差異
 
 ![upgit_20250220_1740057528.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250220_1740057528.png)
 
 -   arduino 的話需要安裝 HC-05、HC-06 藍芽模組(屬於藍芽 3.0)
 -   ESP32 內建藍芽 4.2
 
-### 12.2. 藍牙規範(Profile)：定義各種功能(音樂傳輸、遙控功能)
+### 13.2. 藍牙規範(Profile)：定義各種功能(音樂傳輸、遙控功能)
 
 -   藍牙規範有至少 22 種，定義各種功能，以確保裝置的互通性。常見的藍牙規範包括：
     -   A2DP（Advance Audio Distribution Profile）：立體聲音訊傳輸，提供高品質音樂。
@@ -352,7 +356,15 @@ ls -l /dev/cu.* // 列出所有 CU 設備
     -   HID（Human Interface Device Profile）：支援滑鼠、鍵盤等人機介面。
     -   SPP（Serial Port Profile）：取代 RS-232 串列埠，用於數據傳輸。
 
-### 12.3. 藍芽序列傳輸(serial port profile, SPP)
+### 13.3. 藍牙通訊協議 01：藍芽序列傳輸(serial port profile, SPP)
+
+-   屬於 Bluetooth Classic（傳統藍牙），使用 RFCOMM（類似於串列通訊的通訊協定）
+-   適合持續大流量的數據傳輸，如串列埠模擬（例如 RS-232）。
+-   主要應用於藍牙 2.0/2.1/3.0 的設備，適用於舊式藍牙裝置。
+-   耗電較高，適合需要連續大量數據傳輸的應用，如無線串口通訊、音訊流傳輸等。
+-   應用：藍牙串口模組（HC-05、HC-06）、舊款藍牙耳機、無線數據傳輸設備。
+
+-   相關指令
 
 ```cpp
 #include "BluetoothSerial.h" // 引用庫
@@ -372,7 +384,7 @@ myBT.read();
 myBT.println();
 ```
 
-#### 12.3.1. [Lab：使用藍芽控制 LED 燈](./Lab/BlueTooth_LED/BlueTooth_LED.ino)
+#### 13.3.1. [Lab：使用藍芽控制 LED 燈 => 僅適用 android](./Lab/BlueTooth_LED/BlueTooth_LED.ino)
 
 ![upgit_20250220_1740060245.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250220_1740060245.png)
 
@@ -384,7 +396,7 @@ myBT.println();
 
 ![upgit_20250220_1740060230.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250220_1740060230.png)
 
-#### 12.3.2. [Lab：ESP32 讀取可變電阻的類比訊號，並透過藍芽傳輸到手機](./Lab/Bluetooth_AnalogRead/Bluetooth_AnalogRead.ino)
+#### 13.3.2. [Lab：ESP32 讀取可變電阻的類比訊號，並透過藍芽傳輸到手機](./Lab/Bluetooth_AnalogRead/Bluetooth_AnalogRead.ino)
 
 -   ESP32 讀取感測器訊息後，可以回傳給手機。
 -   但要考慮到緩衝區塞滿的問題，有 2 種處理方式：
@@ -392,7 +404,7 @@ myBT.println();
     -   手機要先送指令詢問，ESP32 才傳資料
 -   手機為 master，ESP32 為 slave
 
-#### 12.3.3. Lab：兩個 ESP32 透過藍芽互相傳遞訊息
+#### 13.3.3. Lab：兩個 ESP32 透過藍芽互相傳遞訊息
 
 ![upgit_20250220_1740061447.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250220_1740061447.png)
 
@@ -407,17 +419,104 @@ void setup() {
 -   [master 程式碼](./Lab/Bluetooth_ESP32_Communicate/Bluetooth_ESP32_Communicate_master.ino)
 -   [slave 程式碼](./Lab/Bluetooth_ESP32_Communicate/Bluetooth_ESP32_Communicate_slave.ino)
 
-## 13. WiFi
+### 13.4. 藍牙通訊協議 02：BLE（Bluetooth Low Energy）
+
+-   屬於 Bluetooth 4.0+ 之後的標準，專為低功耗設備設計。
+-   適合傳輸小量、間歇性的數據，功耗較低，適合感測器、穿戴裝置等應用。
+-   應用：心率監測器、智慧手錶、藍牙燈控、BLE 設備掃描。
+-   在 BLE 通訊中，ESP32 充當 Peripheral（從設備），iPhone 充當 Central（主設備）：
+    -   ESP32 作為 BLE Server，提供 GATT 服務
+    -   iPhone 連線後，可讀取或寫入數據
+-   arduino 模組的話，就要使用 HM-10 或 AT-09 模組
+
+### 13.5. [使用 remoteXT 進行藍芽通訊](./remoteXY/remoteXY.md#使用remoteXT進行藍芽通訊)
+
+## 14. 網路
+
+### 14.1. IP(網際網路協定)
+
+![upgit_20250225_1740478766.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250225_1740478766.png)
+
+-   192.168.1.25 => 一串 32 位元長度的二進位數字
+-   公共 IP：
+    -   屬於網路上獨一無二的 IP，
+    -   由 ISP(internet service provider，網路服務提供者)分配
+-   私人 IP：
+
+### 14.2. getway：
+
+-   如果家中有多台設備需要上網，可以透過 router 處理內網、外網之間介面
+
+### 14.3. mask(子網路遮罩)：
+
+![upgit_20250225_1740479326.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250225_1740479326.png)
+
+### 14.4. MAC
+
+-   實體位置(media acess control, MAC)
+-   每個網卡獨一無二的地址，被燒錄在網卡的韌體上
+-   08:00:69:02:01:FC => 前三個為製造商編號，後三個為產品編號
+
+### 14.5. port
+
+![upgit_20250225_1740479785.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250225_1740479785.png)
+
+-   IP 比喻為電話號碼的話，port 就像是不同的分機+
+-   HTTP(80)、FTP(21)
+
+### 14.6. WiFi
 
 -   電腦使用的無線網路標準是由國際電子工程學會(IEEE)制定的 IEEE 802.11 標準。
 -   wifi 標準
         ![upgit_20250220_1740061903.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250220_1740061903.png)
 
-### 13.1. [Lab：掃描 wufi 熱點](./Lab/Wifi_Scan/Wifi_Scan.ino)
+### 14.7. wifi.h
 
-### 13.2. [Lab：連上基地台](./Lab/ESP32_Wifi_Connect/ESP32_Wifi_Connect.ino)
+```
+// WiFi 連線與管理
+WiFi.begin("網路名稱", "密碼")
 
-### 13.3. 將開發版本申設定為 wifi 基地台(AP)
+// 終止 Wi-Fi 連線。
+WiFi.disconnect()
+
+// 傳回 Wi-Fi 連線狀態
+WiFi.status() //  WL_IDLE_STATUS（閒置）、WL_CONNECTED（已連線）
+
+// 網路掃描
+// 掃描無線網路熱點，並傳回找到的網路名稱（SSID）數量，傳回 -1 表示沒有可用熱點。
+WiFi.scanNetworks()
+
+// 裝置資訊
+WiFi.SSID() // 傳回當前連線的 Wi-Fi 網路名稱（SSID）
+WiFi.RSSI() // 傳回 Wi-Fi 訊號強度（單位 dBm）。
+WiFi.channel() // 傳回 Wi-Fi 連線頻道。
+WiFi.localIP() // 傳回此開發板取得的 IP 位址。
+WiFi.macAddress() // 取得網路卡（ESP32 模組）的 MAC 位址
+WiFi.firmwareVersion() // 傳回 ESP32 模組的韌體版本。
+WiFi.encryptionType() // 傳回 Wi-Fi 網路採用的加密類型，例如 WEP、WPA、WPA2、WPA3 等。
+```
+
+### 14.8. [Lab：掃描 wifi 熱點](./Lab/Wifi_Scan/Wifi_Scan.ino)
+
+### 14.9. [Lab：連上基地台](./Lab/ESP32_Wifi_Connect/ESP32_Wifi_Connect.ino)
+
+![upgit_20250225_1740479785.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250225_1740479785.png)
+
+-   ESP32 他只吃 2.4G 的網路歐
+-   可以額外開一個檔案 config.h，去寫帳密
+
+```c
+// config.h
+const char *WIFI_SSID = "輸入熱點名稱";
+const char *WIFI_PASSWORD = "輸入熱點密碼";
+```
+
+```c
+// 主程式
+#include "config.h" // 就可以直接去使用WIFI_SSID跟WIFI_PASSWORD了
+```
+
+### 14.10. 將開發版本申設定為 wifi 基地台(AP)
 
 -   SP32 可以作為 AP（無線基地台），但它無法直接當作網際網路的熱點，因為 ESP32 本身沒有行動數據（3G/4G/5G）或乙太網路連接的功能
 -   當然比市售商品差，只適合簡易且負荷少的應用
@@ -431,64 +530,44 @@ WiFi.softAP("SSID", password(至少8碼), 通道)
 
 ![upgit_20250221_1740115738.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740115738.png)
 
--   如果要自訂 IP 位置(不建議自訂)
+#### 14.10.1. [Lab：讓 ESP32 成為 AP，並自動分配 IP（使用 DHCP）](./Lab/ESP32_AP_DHCP/ESP32_AP_DHCP.ino)
 
-```cpp
-// 使用IPAddress 類別
-
-IPAddress local_IP(192, 168, 4, 100); // 設定 ESP32 當 AP 時的 IP 位址
-IPAddress gateway(192, 168, 4, 100);  // 設定此網路的閘道器 IP 位址（一般與 local_IP 相同）
-IPAddress subnet(255, 255, 255, 0); // 設定此網路的子網路遮罩
-
-void setup() {
-    WiFi.softAPConfig(local_IP, gateway, subnet);
-}
-```
-
-#### 13.3.1. [Lab：讓 ESP32 自動分配 IP（使用 DHCP）](./Lab/ESP32_AP_DHCP/ESP32_AP_DHCP.ino)
-
-#### 13.3.2. [Lab：手動設定 AP 的 IP 位址、閘道器和子網路遮罩](./Lab/ESP32_AP_StaticIP/ESP32_AP_StaticIP.ino)
-
-### 13.4. HTTP 傳輸方式以及格式
+### 14.11. HTTP 傳輸方式以及格式
 
 ![upgit_20250221_1740116826.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740116826.png)
 
 -   HTTP 訊息
     ![upgit_20250221_1740116856.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740116856.png)
 
-### 13.5. [Lab：透過 GET 方式，取得網頁回復](./Lab/ESP32_Wifi_Get/ESP32_Wifi_Get.ino)
+### 14.12. [Lab：透過 GET 方式，取得網頁回復](./Lab/ESP32_Wifi_Get/ESP32_Wifi_Get.ino)
 
-### 13.6. Lab：透過 GET 方式在 thingSpeak
+### 14.13. ~~Lab：透過 GET 方式在 thingSpeak~~
 
-### 13.7. [Lab：透過 POST 方式在 line notify](./Lab/ESP32_Wifi_Post/ESP32_Wifi_Post.ino)
+### 14.14. ~~[(不實作)Lab：透過 POST 方式在 line notify](./Lab/ESP32_Wifi_Post/ESP32_Wifi_Post.ino)~~
 
 -   line notify 已經提用，但可以參考他 POST 的語法
 
-### 13.8. [Lab：將 ESP32 變成網頁伺服器](./Lab/ESP32_WebServer/ESP32_WebServer.ino)
+### 14.15. [Lab：將 ESP32 變成網頁伺服器](./Lab/ESP32_WebServer/ESP32_WebServer.ino)
 
 -   引用 WebServer.h
 -   可以處理 HTTP，但一次只能處裡一個 client
 
 ![upgit_20250221_1740124776.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740124776.png)
 
-代表 ESP32 透過 HTTP 控制 LED
-額外標明 AP 模式，方便區分
-
-### 13.9. [Lab：利用 HTTP 方式控制 ESP32 上的 LED](./Lab/ESP32_HTTP_LED/ESP32_HTTP_LED.ino)
+### 14.16. [Lab：利用 HTTP 方式控制 ESP32 上的 LED](./Lab/ESP32_HTTP_LED/ESP32_HTTP_LED.ino)
 
 ![upgit_20250221_1740125883.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740125883.png)
 
 -   ESP32 去連網路後，在做為網頁 server
--   未測試
 
-### 13.10. [Lab：利用 HTTP 方式控制 ESP32 上的 LED(ESP32 同時作為 AP)](./Lab/ESP32_HTTP_LED_AP/ESP32_HTTP_LED_AP.ino)
+### 14.17. [(不實作)Lab：利用 HTTP 方式控制 ESP32 上的 LED(ESP32 同時作為 AP)](./Lab/ESP32_HTTP_LED_AP/ESP32_HTTP_LED_AP.ino)
 
 ![upgit_20250221_1740126823.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250221_1740126823.png)
 
 -   在沒有無線基地台的情況下，可以將 ESP32 作為 AP(softAP)。
 -   未測試
 
-### 13.11. 取得網路時間(NTP)
+### 14.18. 取得網路時間(NTP)
 
 -   時間是一個很重要的參數，紀錄資料需要時間，平常也會有時間的需求。
 -   過往是使用即時模組(real time clock, RTC)，但需要手動調整時間，也會時常不準確
@@ -507,15 +586,17 @@ Serial.println(&timeinfo, "%T");  // 顯示 22:36:47
 Serial.println(&timeinfo, "%F %T");  // 顯示 2020-03-18 22:36:47
 ```
 
-#### 13.11.1. [Lab：ESP32 透過 Wi-Fi 連接 NTP 伺服器來獲取網路時間](./Lab/ESP32_NTP_Time/ESP32_NTP_Time.ino)
+#### 14.18.1. [Lab：ESP32 透過 Wi-Fi 連接 NTP 伺服器來獲取網路時間](./Lab/ESP32_NTP_Time/ESP32_NTP_Time.ino)
 
-## 14. 未整理
+### 14.19. [使用 remoteXT 進行 wifi 通訊](./remoteXY/remoteXY.md)
 
-### 14.1. [Lab：使用 HTTP 操作控制 LED](./未整理Lab/Wifi_LED/Wifi_LED.ino)
+## 15. 未整理
 
-## 15. [Lab：讀取 DHT11](./未整理Lab/DHT11_ESP32/DHT11_ESP32.ino)
+### 15.1. [Lab：使用 HTTP 操作控制 LED](./未整理Lab/Wifi_LED/Wifi_LED.ino)
 
-## 16. [Lab：讀取 DHT11，並在網頁顯示](./未整理Lab/DHT11_ESP32_Wifi/DHT11_ESP32_Wifi.ino)
+## 16. [Lab：讀取 DHT11](./未整理Lab/DHT11_ESP32/DHT11_ESP32.ino)
+
+## 17. [Lab：讀取 DHT11，並在網頁顯示](./未整理Lab/DHT11_ESP32_Wifi/DHT11_ESP32_Wifi.ino)
 
 <p align="center">
   Copyright © 2025 Wei-Cheng Chen
