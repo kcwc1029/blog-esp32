@@ -1,11 +1,12 @@
 <p align="center">
-    如果你覺得這個專案對你有幫助，請點擊右上角的 ⭐ 支持這個專案！
+    TA 寫得很辛苦，能不能幫忙點個右上角的 ⭐ 支持一下(霸脫 QQ)
 </p>
 
 ## 1. 相關資源
 
 -   [Arduino SpeedUp 系列課程指南 - LazyTomato Lab](https://www.lazytomatolab.com/guide/)
 -   [MCU 功能介紹與實作 :: 2023 iThome 鐵人賽](https://ithelp.ithome.com.tw/users/20162670/ironman/6513)
+-   https://sites.google.com/hwsh.ylc.edu.tw/alover/%E6%A9%9F%E9%9B%BB%E6%95%B4%E5%90%88/%E5%90%84%E7%A8%AE%E5%B8%B8%E8%A6%8B%E6%A8%A1%E7%B5%84?authuser=0
 
 ## 2. 開發版
 
@@ -590,13 +591,67 @@ Serial.println(&timeinfo, "%F %T");  // 顯示 2020-03-18 22:36:47
 
 ### 14.19. [使用 remoteXT 進行 wifi 通訊](./remoteXY/remoteXY.md)
 
-## 15. 未整理
+## 15. 伺服馬達
 
-### 15.1. [Lab：使用 HTTP 操作控制 LED](./未整理Lab/Wifi_LED/Wifi_LED.ino)
+-   可以依照命令作動作(位置，正反轉；改變速度)
 
-## 16. [Lab：讀取 DHT11](./未整理Lab/DHT11_ESP32/DHT11_ESP32.ino)
+![upgit_20250226_1740545510.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740545510.png)
+![upgit_20250226_1740545545.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740545545.png)
 
-## 17. [Lab：讀取 DHT11，並在網頁顯示](./未整理Lab/DHT11_ESP32_Wifi/DHT11_ESP32_Wifi.ino)
+-   引線：電源、GND、singal
+-   單個伺服馬達可以直接使用 ESP32 進行供電，如果要接一個以上的話，就需要外部供電
+-   需要安裝 ESP32Servo.h
+
+![upgit_20250226_1740545745.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740545745.png)
+
+```c
+#include <ESP32Servo.h>
+
+Servo myServo; // 建立物件
+myServo.setPeriodHertz(50); // 設定訊號頻率
+
+myServo.write() // 要求伺服馬達轉到指定角度
+```
+
+### 15.1. [Lab：測試伺服馬達是否可以正常運作](./Lab/Servo_Sweep/Servo_Sweep.ino)
+
+### 15.2. [Lab：讀取可變電阻，控制伺服馬達](./Lab/Servo_Pot_Control/Servo_Pot_Control.ino)
+
+## 16. 直流馬達
+
+![upgit_20250226_1740546721.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740546721.png)
+
+-   ESP32 輸出電流僅 3.3V，無法推動馬達，需要接額外電源
+-   實際使用，我們都會透過中介開關控制 => H 橋(L298N、L9110)等驅動晶片達成。
+
+### 16.1. 馬達控制電路
+
+![upgit_20250226_1740540133.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740540133.png)
+![upgit_20250226_1740540155.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740540155.png)
+
+### 16.2. H 橋
+
+-   四個開關接由電晶體所製
+-   反應速度極快 => 以 PWM 控制
+
+![upgit_20250226_1740540223.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740540223.png)
+![upgit_20250226_1740540283.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740540283.png)
+
+### 16.3. L298N 驅動晶片
+
+![upgit_20250226_1740540395.png](https://raw.githubusercontent.com/kcwc1029/obsidian-upgit-image/main/2025/02/upgit_20250226_1740540395.png)
+
+-   內建雙 H 橋 => 驅動 2 顆馬達
+
+### 16.4. [Lab：ESP32 控制 DC 馬達](https://randomnerdtutorials.com/esp32-dc-motor-l298n-motor-driver-control-speed-direction/)
+
+## 17. 未整理
+
+### 17.1. [Lab：使用 HTTP 操作控制 LED](./未整理Lab/Wifi_LED/Wifi_LED.ino)
+
+## 18. [Lab：讀取 DHT11](./未整理Lab/DHT11_ESP32/DHT11_ESP32.ino)
+
+## 19. [Lab：讀取 DHT11，並在網頁顯示](./未整理Lab/DHT11_ESP32_Wifi/DHT11_ESP32_Wifi.ino)
 
 <p align="center">
   Copyright © 2025 Wei-Cheng Chen
